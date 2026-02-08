@@ -1,127 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; 
-                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
-                   font-src 'self' https://cdnjs.cloudflare.com;
-                   script-src 'self' 'unsafe-inline'"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Piket Kelas XII.5</title>
-
-    <!-- Font Awesome dengan HTTPS aman -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
+    
+    <!-- Font Awesome sederhana -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- CSS lokal -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Fallback untuk Font Awesome -->
-    <style>
-      /* Fallback icons jika Font Awesome gagal */
-      .fa.failed::before {
-        content: "⚠️";
-      }
-      .fa-broom.failed::before {
-        content: "🧹";
-      }
-      .fa-bell.failed::before {
-        content: "🔔";
-      }
-      .fa-calendar-alt.failed::before {
-        content: "📅";
-      }
-      .fa-list-alt.failed::before {
-        content: "📋";
-      }
-      .fa-calendar-day.failed::before {
-        content: "📆";
-      }
-      .fa-calendar.failed::before {
-        content: "📅";
-      }
-      .fa-users.failed::before {
-        content: "👥";
-      }
-      .fa-user-slash.failed::before {
-        content: "🚫";
-      }
-      .fa-check.failed::before {
-        content: "✅";
-      }
-      .fa-times.failed::before {
-        content: "❌";
-      }
-      .fa-check-double.failed::before {
-        content: "✓✓";
-      }
-      .fa-times-circle.failed::before {
-        content: "⛔";
-      }
-      .fa-clock.failed::before {
-        content: "⏰";
-      }
-      .fa-info-circle.failed::before {
-        content: "ℹ️";
-      }
-      .fa-bell-slash.failed::before {
-        content: "🔕";
-      }
-      .fa-check-circle.failed::before {
-        content: "✔️";
-      }
-      .fa-exclamation-triangle.failed::before {
-        content: "⚠️";
-      }
-      .fa-times-circle.failed::before {
-        content: "❌";
-      }
-      .fa-chevron-left.failed::before {
-        content: "◀️";
-      }
-      .fa-chevron-right.failed::before {
-        content: "▶️";
-      }
-    </style>
-
-    <script>
-      // Deteksi jika Font Awesome gagal load
-      document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
-          const testIcon = document.createElement("i");
-          testIcon.className = "fas fa-test";
-          document.body.appendChild(testIcon);
-          const style = window.getComputedStyle(testIcon, ":before");
-          const content = style.content;
-          document.body.removeChild(testIcon);
-
-          // Jika content kosong atau "none", Font Awesome gagal
-          if (!content || content === "none" || content === '""') {
-            console.warn("Font Awesome gagal load, menggunakan fallback");
-            document
-              .querySelectorAll(".fa, .fas, .far, .fal, .fab")
-              .forEach(function (icon) {
-                icon.classList.add("failed");
-              });
-          }
-        }, 1000);
-      });
-    </script>
-  </head>
-  <body>
-    <!-- Isi HTML Anda di sini -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Hapus CSP jika menyebabkan masalah -->
+</head>
+<body>
     <div class="container">
-      <!-- ... konten lainnya ... -->
+        <header>
+            <div class="notification-badge" id="notificationBadge">
+                <i class="fas fa-bell"></i>
+                <span id="notificationCount"></span>
+            </div>
+            <h1><i class="fas fa-broom"></i> Jadwal Piket Kelas XII.5</h1>
+            <p class="subtitle">Tahun Ajaran 2025/2026 • Pengingat Piket Harian</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="far fa-calendar-alt"></i> Kalender Piket</h2>
+                    <div class="calendar" id="calendar">
+                        <!-- Kalender akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="panel">
+                    <h2 class="panel-title"><i class="fas fa-list-alt"></i> Daftar Jadwal Piket</h2>
+                    <table class="jadwal-table">
+                        <thead>
+                            <tr>
+                                <th width="80">No.</th>
+                                <th>Nama Petugas</th>
+                                <th width="120">Hari</th>
+                                <th width="150">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jadwalTableBody">
+                            <!-- Data jadwal akan diisi oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="day-details hidden" id="dayDetails">
+                    <!-- Detail hari akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Jadwal Piket Kelas XII.5 • Notifikasi otomatis untuk petugas harian • "Jangan lupa piket hari ini!"</p>
+            <p id="infoHariIni"></p>
+        </footer>
+        
+        <!-- Tombol notifikasi -->
+        <button class="notification-btn" id="notificationToggleBtn">
+            <i class="fas fa-bell"></i>
+        </button>
+        
+        <!-- Panel notifikasi -->
+        <div class="notification-panel" id="notificationPanel">
+            <div class="notification-header">
+                <h3 class="notification-title"><i class="fas fa-bell"></i> Notifikasi Piket</h3>
+                <button class="close-notification" id="closeNotification">&times;</button>
+            </div>
+            
+            <div id="notificationContent">
+                <!-- Notifikasi akan diisi oleh JavaScript -->
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
