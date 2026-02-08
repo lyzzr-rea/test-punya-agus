@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; 
+                   style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+                   font-src 'self' https://cdnjs.cloudflare.com;
+                   script-src 'self' 'unsafe-inline'"
+    />
+    <title>Jadwal Piket Kelas XII.5</title>
+
+    <!-- Font Awesome dengan HTTPS aman -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS lokal -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fallback untuk Font Awesome -->
+    <style>
+      /* Fallback icons jika Font Awesome gagal */
+      .fa.failed::before {
+        content: "⚠️";
+      }
+      .fa-broom.failed::before {
+        content: "🧹";
+      }
+      .fa-bell.failed::before {
+        content: "🔔";
+      }
+      .fa-calendar-alt.failed::before {
+        content: "📅";
+      }
+      .fa-list-alt.failed::before {
+        content: "📋";
+      }
+      .fa-calendar-day.failed::before {
+        content: "📆";
+      }
+      .fa-calendar.failed::before {
+        content: "📅";
+      }
+      .fa-users.failed::before {
+        content: "👥";
+      }
+      .fa-user-slash.failed::before {
+        content: "🚫";
+      }
+      .fa-check.failed::before {
+        content: "✅";
+      }
+      .fa-times.failed::before {
+        content: "❌";
+      }
+      .fa-check-double.failed::before {
+        content: "✓✓";
+      }
+      .fa-times-circle.failed::before {
+        content: "⛔";
+      }
+      .fa-clock.failed::before {
+        content: "⏰";
+      }
+      .fa-info-circle.failed::before {
+        content: "ℹ️";
+      }
+      .fa-bell-slash.failed::before {
+        content: "🔕";
+      }
+      .fa-check-circle.failed::before {
+        content: "✔️";
+      }
+      .fa-exclamation-triangle.failed::before {
+        content: "⚠️";
+      }
+      .fa-times-circle.failed::before {
+        content: "❌";
+      }
+      .fa-chevron-left.failed::before {
+        content: "◀️";
+      }
+      .fa-chevron-right.failed::before {
+        content: "▶️";
+      }
+    </style>
+
+    <script>
+      // Deteksi jika Font Awesome gagal load
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          const testIcon = document.createElement("i");
+          testIcon.className = "fas fa-test";
+          document.body.appendChild(testIcon);
+          const style = window.getComputedStyle(testIcon, ":before");
+          const content = style.content;
+          document.body.removeChild(testIcon);
+
+          // Jika content kosong atau "none", Font Awesome gagal
+          if (!content || content === "none" || content === '""') {
+            console.warn("Font Awesome gagal load, menggunakan fallback");
+            document
+              .querySelectorAll(".fa, .fas, .far, .fal, .fab")
+              .forEach(function (icon) {
+                icon.classList.add("failed");
+              });
+          }
+        }, 1000);
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Isi HTML Anda di sini -->
+    <div class="container">
+      <!-- ... konten lainnya ... -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
