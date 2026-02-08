@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Piket Kelas XII.5</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="notification-badge" id="notificationBadge">
+          <i class="fas fa-bell"></i>
+          <span id="notificationCount"></span>
+        </div>
+        <h1><i class="fas fa-broom"></i> Jadwal Piket Kelas XII.5</h1>
+        <p class="subtitle">Tahun Ajaran 2025/2026 • Pengingat Piket Harian</p>
+      </header>
+
+      <div class="main-content">
+        <div class="left-panel">
+          <div class="panel">
+            <h2 class="panel-title">
+              <i class="far fa-calendar-alt"></i> Kalender Piket
+            </h2>
+            <div class="calendar" id="calendar">
+              <!-- Kalender akan diisi oleh JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <div class="right-panel">
+          <div class="panel">
+            <h2 class="panel-title">
+              <i class="fas fa-list-alt"></i> Daftar Jadwal Piket
+            </h2>
+            <table class="jadwal-table">
+              <thead>
+                <tr>
+                  <th width="80">No.</th>
+                  <th>Nama Petugas</th>
+                  <th width="120">Hari</th>
+                  <th width="150">Status</th>
+                </tr>
+              </thead>
+              <tbody id="jadwalTableBody">
+                <!-- Data jadwal akan diisi oleh JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="day-details" id="dayDetails">
+            <!-- Detail hari akan diisi oleh JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>
+          Jadwal Piket Kelas XII.5 • Notifikasi otomatis untuk petugas harian •
+          "Jangan lupa piket hari ini!"
+        </p>
+        <p id="infoHariIni" style="margin-top: 10px; font-weight: 600"></p>
+      </footer>
+
+      <!-- Tombol notifikasi -->
+      <div class="notification-btn" id="notificationToggleBtn">
+        <i class="fas fa-bell"></i>
+      </div>
+
+      <!-- Panel notifikasi -->
+      <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+          <h3 class="notification-title">
+            <i class="fas fa-bell"></i> Notifikasi Piket
+          </h3>
+          <button class="close-notification" id="closeNotification">
+            &times;
+          </button>
+        </div>
+
+        <div id="notificationContent">
+          <!-- Notifikasi akan diisi oleh JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
